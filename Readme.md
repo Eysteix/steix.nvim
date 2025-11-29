@@ -4,7 +4,7 @@ A modern, highly optimized Neovim configuration focused on speed, excellent deve
 
 ## Dashboard
 
-!["Steix Dashboard"]("steix.png")
+!["Steix Dashboard"](steix.png)
 
 ## ✨ Features
 
