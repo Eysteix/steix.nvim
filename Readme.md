@@ -123,4 +123,3 @@ This configuration is released under the **MIT License**. See the `LICENSE` file
 
 ---
 
-Would you like me to generate the simple MIT license text for your `LICENSE` file?
