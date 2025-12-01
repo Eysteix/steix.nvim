@@ -16,6 +16,7 @@ return {
 			treesitter = true,
 			harpoon = true,
 			telescope = true,
+			snacks = true,
 			mason = true,
 			noice = true,
 			notify = true,
@@ -45,8 +46,4 @@ return {
 			},
 		},
 	},
-	config = function(_, opts)
-		require("catppuccin").setup(opts)
-		vim.cmd.colorscheme("catppuccin-mocha")
-	end,
 }

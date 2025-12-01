@@ -2,9 +2,11 @@ return {
 	"folke/snacks.nvim",
 	priority = 1000,
 	lazy = false,
-	---@type snacks.Config
+	theme = "none",
+	transparent = true,
 	opts = {
 		bigfile = { enabled = true },
+
 		dashboard = {
 			enabled = true,
 			preset = {
@@ -19,14 +21,29 @@ return {
   ]],
 			},
 		},
-		explorer = { enabled = false },
+		explorer = {
+			enabled = true,
+			preset = "sidebar",
+			position = "left",
+			width = 35,
+			show_hidden = "true",
+		},
 		indent = { enabled = true },
 		input = { enabled = true },
 		notifier = {
 			enabled = true,
 			timeout = 3000,
 		},
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			sources = {
+				explorer = {
+					layout = {
+						auto_hide = { "input" },
+					},
+				},
+			},
+		},
 		quickfile = { enabled = true },
 		scope = { enabled = true },
 		scroll = { enabled = true },

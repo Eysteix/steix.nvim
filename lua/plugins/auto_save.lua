@@ -1,18 +1,3 @@
--- return {
--- 	"pocco81/auto-save.nvim",
--- 	lazy = false, -- load immediately
--- 	config = function()
--- 		require("auto-save").setup({
--- 			enabled = true,
--- 			execution_message = {
--- 				message = function()
--- 					return "File saved"
--- 				end,
--- 			},
--- 			debounce_delay = 1000, -- in ms
--- 		})
--- 	end,
--- }
 return {
 	{
 		"okuuva/auto-save.nvim",

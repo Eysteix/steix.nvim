@@ -1,36 +1,25 @@
 -- Setup PLugins and depdencies
 require("config.lazy")
-require("fine-cmdline").setup({
-	cmdline = {
-		enable_keymaps = true,
-		smart_history = true,
-		prompt = "$ ",
-	},
-	popup = {
-		position = {
-			row = "10%",
-			col = "45%",
-		},
-		size = {
-			width = "40%",
-		},
-
-		border = {
-			style = "rounded",
-		},
-		-- win_options = {
-		-- 	winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-		-- },
-	},
-})
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "lua", "json", "http", "prisma", "php", "blade", "html", "css", "scss", "cpp", "c" }, -- http needed for rest.nvim
 	filters = {
 		dotfiles = true,
 		ignore = false,
 	},
+	modules = {},
+	sync_install = true,
+	ignore_install = {},
 	auto_install = true,
-	highlight = { enable = true },
+	indent = { enable = true },
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = true,
+	},
+	rainbow = {
+		enabled = true,
+		extended_mode = true,
+		max_file_lines = nil,
+	},
 })
 
 vim.g.rest_nvim = {
@@ -203,7 +192,6 @@ vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Lazy Extension" })
 
 -- Vim keymaps
 local map = vim.keymap.set
-map("n", ":", "<Cmd>FineCmdline<CR>", { noremap = true })
 map("n", "<C-h>", "<C-w>h", { desc = "Go to window left" })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "Go to window up" })
@@ -215,22 +203,24 @@ map("n", "<leader>fm", function()
 end, { desc = "format file" })
 --plugin Deps
 vim.opt.termguicolors = true
-
+vim.opt.cmdheight = 0
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		vim.api.nvim_set_hl(0, "SnacksPicker", { bg = "none", nocombine = true })
+		vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = "#316c71", bg = "none", nocombine = true })
+	end,
+})
 --Diagnostics
 vim.diagnostic.config({
 	virtual_text = {
-		-- Set to true to enable virtual text
 		enabled = true,
-		-- Optional: customize the prefix text that appears before the message
-		-- For example: "Error: " or "Warning: "
-		-- Setting it to " " makes the message start right after the code.
 		prefix = " ",
-
-		-- Optional: You can set the severity levels that display virtual text
-		-- severity = { min = vim.diagnostic.severity.WARN }, -- only shows WARN and above
 	},
-	-- Other useful settings you might want to ensure are on:
-	signs = true, -- Show 'E', 'W', 'I' in the sign column
-	underline = true, -- Underline the problematic code
-	update_in_insert = false, -- Don't update diagnostics while in Insert mode
+	signs = true,
+	underline = true,
+	update_in_insert = false,
 })
+
+--Theming
+vim.cmd.colorscheme("catppuccin-mocha")
