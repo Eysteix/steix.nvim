@@ -12,9 +12,9 @@ return {
 					title = "%{b:snacks_terminal.id}: %{b:term_title}",
 					filter = function(_buf, win)
 						return vim.w[win].snacks_win
-							and vim.w[win].snacks_win.position == pos
-							and vim.w[win].snacks_win.relative == "editor"
-							and not vim.w[win].trouble_preview
+						    and vim.w[win].snacks_win.position == pos
+						    and vim.w[win].snacks_win.relative == "editor"
+						    and not vim.w[win].trouble_preview
 					end,
 				})
 			end
@@ -43,12 +43,11 @@ return {
 	},
 	{
 		"ricardoramirezr/blade-nav.nvim",
-		dependencies = { -- totally optional
+		dependencies = {          -- totally optional
 			"hrsh7th/nvim-cmp", -- if using nvim-cmp
 			{ "ms-jpq/coq_nvim", branch = "coq" }, -- if using coq
-			"saghen/blink.cmp", -- if using blink.cmp
 		},
-		ft = { "blade", "php" }, -- optional, improves startup time
+		ft = { "blade", "php" },  -- optional, improves startup time
 		opts = {
 			-- This applies for nvim-cmp and coq, for blink refer to the configuration of this plugin
 			close_tag_on_complete = true, -- default: true
@@ -375,53 +374,54 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
-			"hrsh7th/cmp-nvim-lsp", -- LSP source
-			"hrsh7th/cmp-buffer", -- buffer words
-			"hrsh7th/cmp-path", -- filesystem paths
-			"saadparwaiz1/cmp_luasnip", -- snippets
-			"L3MON4D3/LuaSnip", -- snippet engine
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"saadparwaiz1/cmp_luasnip",
+			"L3MON4D3/LuaSnip",
 		},
 		config = function()
 			local cmp = require("cmp")
+			local luasnip = require("luasnip")
+
+			-- Main completion settings
 			cmp.setup({
 				snippet = {
 					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
+						luasnip.lsp_expand(args.body)
 					end,
 				},
 				mapping = cmp.mapping.preset.insert({
-					["<C-Space>"] = cmp.mapping.complete(), -- trigger completion
-					["<CR>"] = cmp.mapping.confirm({ select = true }), -- enter to confirm
+					["<C-Space>"] = cmp.mapping.complete(),
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
 					["<Tab>"] = cmp.mapping.select_next_item(),
 					["<S-Tab>"] = cmp.mapping.select_prev_item(),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "path" },
-					{ name = "luasnip" },
-					{ name = "omni" },
 				}),
-				opts = {
-					cmdline = {
-						enabled = true,
-						---@diagnostic disable-next-line: assign-type-mismatch
-						sources = function()
-							local type = vim.fn.getcmdtype()
-							if type == "/" or type == "?" then
-								return { "buffer" }
-							end
-							if type == ":" or type == "@" then
-								return { "cmdline", "path" }
-							end
-							return {}
-						end,
-						completion = {
-							menu = { auto_show = true },
-							ghost_text = { enabled = false },
-						},
-					},
+			})
+
+			-- `/` and `?` search
+			cmp.setup.cmdline({ "/", "?" }, {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = {
+					{ name = "buffer" },
 				},
+			})
+
+			-- `:` commands
+			cmp.setup.cmdline(":", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({
+					{ name = "path" },
+				}, {
+					{ name = "cmdline" },
+				}),
 			})
 		end,
 	},
