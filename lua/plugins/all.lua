@@ -1,8 +1,13 @@
 return {
 	{
+		"Shobhit-Nagpal/nvim-rafce",
+		config = function()
+			require("rafce")
+		end,
+	},
+	{
+
 		"folke/edgy.nvim",
-		---@module 'edgy'
-		---@param opts Edgy.Config
 		opts = function(_, opts)
 			for _, pos in ipairs({ "top", "bottom", "left", "right" }) do
 				opts[pos] = opts[pos] or {}
@@ -12,9 +17,9 @@ return {
 					title = "%{b:snacks_terminal.id}: %{b:term_title}",
 					filter = function(_buf, win)
 						return vim.w[win].snacks_win
-						    and vim.w[win].snacks_win.position == pos
-						    and vim.w[win].snacks_win.relative == "editor"
-						    and not vim.w[win].trouble_preview
+							and vim.w[win].snacks_win.position == pos
+							and vim.w[win].snacks_win.relative == "editor"
+							and not vim.w[win].trouble_preview
 					end,
 				})
 			end
@@ -23,18 +28,13 @@ return {
 	{
 		"ahmedkhalf/project.nvim",
 		config = function()
-			require("project_nvim").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
+			require("project_nvim").setup({})
 		end,
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		opts = function(_, opts)
-			-- Other blankline configuration here
 			return require("indent-rainbowline").make_opts(opts)
 		end,
 		dependencies = {
@@ -43,14 +43,13 @@ return {
 	},
 	{
 		"ricardoramirezr/blade-nav.nvim",
-		dependencies = {          -- totally optional
-			"hrsh7th/nvim-cmp", -- if using nvim-cmp
-			{ "ms-jpq/coq_nvim", branch = "coq" }, -- if using coq
+		dependencies = {
+			"hrsh7th/nvim-cmp",
+			{ "ms-jpq/coq_nvim", branch = "coq" },
 		},
-		ft = { "blade", "php" },  -- optional, improves startup time
+		ft = { "blade", "php" },
 		opts = {
-			-- This applies for nvim-cmp and coq, for blink refer to the configuration of this plugin
-			close_tag_on_complete = true, -- default: true
+			close_tag_on_complete = true,
 		},
 	},
 
@@ -61,7 +60,7 @@ return {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
 			"nvim-neotest/nvim-nio",
-			"ravitemer/mcphub.nvim", -- optional
+			"ravitemer/mcphub.nvim",
 		},
 		cmd = { "Laravel" },
 		keys = {
@@ -156,12 +155,12 @@ return {
 		opts = {
 			features = {
 				pickers = {
-					provider = "snacks", -- "snacks | telescope | fzf-lua | ui-select"
+					provider = "snacks",
 				},
 			},
 		},
 	},
-	{ -- lazy
+	{
 		"ccaglak/namespace.nvim",
 		-- keys = {
 		--   { "<leader>la", "<cmd>Php classes<cr>" },
@@ -170,32 +169,26 @@ return {
 		--   { "<leader>ls", "<cmd>Php sort<cr>" },
 		-- },
 		dependencies = {
-			"ccaglak/phptools.nvim", -- optional
-			"ccaglak/larago.nvim", -- optional
+			"ccaglak/phptools.nvim",
+			"ccaglak/larago.nvim",
 		},
 		config = function()
 			require("namespace").setup({
-				ui = true, -- default: true -- false only if you want to use your own ui
-				cacheOnload = false, -- default: false -- cache composer.json on load
-				dumpOnload = false, -- default: false -- dump composer.json on load
+				ui = true,
+				cacheOnload = false,
+				dumpOnload = false,
 				sort = {
-					on_save = false, -- default: false -- sorts on every search
-					sort_type = "length_desc", -- default: natural -- seam like what pint is sorting
-					--  ascending -- descending -- length_asc
-					-- length_desc -- natural -- case_insensitive
-					--
+					on_save = false,
+					sort_type = "length_desc",
 				},
 			})
 		end,
 	},
 	{
 		"kylechui/nvim-surround",
-		version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
 		event = "VeryLazy",
 		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
+			require("nvim-surround").setup({})
 		end,
 	},
 	{
@@ -213,11 +206,9 @@ return {
 	},
 	{
 		"folke/lazydev.nvim",
-		ft = "lua", -- only load on lua files
+		ft = "lua",
 		opts = {
 			library = {
-				-- See the configuration section for more details
-				-- Load luvit types when the `vim.uv` word is found
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 			},
 		},
@@ -269,7 +260,7 @@ return {
 		priority = 1000,
 		config = true,
 		opts = {
-			rocks = { "nvim-nio", "lua-curl", "fidget", "mimetypes", "xml2lua", "luarocks-build-tree-sitter" }, -- Specify LuaRocks packages to install
+			rocks = { "nvim-nio", "lua-curl", "fidget", "mimetypes", "xml2lua", "luarocks-build-tree-sitter" },
 		},
 	},
 	{
@@ -296,14 +287,9 @@ return {
 			"LazyGitFilter",
 			"LazyGitFilterCurrentFile",
 		},
-		-- optional for floating window border decoration
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
-		-- setting the keybinding for LazyGit with 'keys' is recommended in
-		--
-		--
-		-- order to load the plugin when the command is run for the first time
 		keys = {
 			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
 		},
@@ -354,24 +340,6 @@ return {
 		end,
 	},
 	{
-		"nvimtools/none-ls.nvim",
-
-		dependencies = {
-			"nvimtools/none-ls-extras.nvim",
-		},
-
-		config = function()
-			local null_ls = require("null-ls")
-			null_ls.setup({
-				sources = {
-					null_ls.builtins.formatting.prettier,
-					require("none-ls.code_actions.eslint"),
-					require("none-ls.diagnostics.eslint_d"),
-				},
-			})
-		end,
-	},
-	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
@@ -406,7 +374,6 @@ return {
 				}),
 			})
 
-			-- `/` and `?` search
 			cmp.setup.cmdline({ "/", "?" }, {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = {
@@ -414,7 +381,6 @@ return {
 				},
 			})
 
-			-- `:` commands
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = cmp.config.sources({

@@ -1,11 +1,10 @@
 -- Setup PLugins and depdencies
 require("config.lazy")
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "lua", "json", "http", "prisma", "php", "blade", "html", "css", "scss", "cpp", "c" }, -- http needed for rest.nvim
-	filters = {
+	ensure_installed = { "lua", "json", "http", "prisma", "php", "blade", "html", "css", "scss", "cpp", "c" }, 
 		dotfiles = true,
 		ignore = false,
-	},
+	
 	modules = {},
 	sync_install = true,
 	ignore_install = {},
@@ -20,7 +19,8 @@ require("nvim-treesitter.configs").setup({
 		extended_mode = true,
 		max_file_lines = nil,
 	},
-})
+}
+)
 
 vim.g.rest_nvim = {
 	result_split_horizontal = false,
