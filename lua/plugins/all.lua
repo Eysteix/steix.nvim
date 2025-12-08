@@ -260,7 +260,15 @@ return {
 		priority = 1000,
 		config = true,
 		opts = {
-			rocks = { "nvim-nio", "lua-curl", "fidget", "mimetypes", "xml2lua", "luarocks-build-tree-sitter" },
+			rocks = {
+				"nvim-nio",
+				"lua-curl",
+				"lua-language-server",
+				"fidget",
+				"mimetypes",
+				"xml2lua",
+				"luarocks-build-tree-sitter",
+			},
 		},
 	},
 	{
@@ -335,7 +343,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "ts_ls", "lua_ls", "cssls", "html", "intelephense" },
+				ensure_installed = { "ts_ls", "cssls", "html", "intelephense" },
 			})
 		end,
 	},

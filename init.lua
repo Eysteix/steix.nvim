@@ -1,10 +1,10 @@
 -- Setup PLugins and depdencies
 require("config.lazy")
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "lua", "json", "http", "prisma", "php", "blade", "html", "css", "scss", "cpp", "c" }, 
-		dotfiles = true,
-		ignore = false,
-	
+	ensure_installed = { "lua", "json", "http", "prisma", "php", "blade", "html", "css", "scss", "cpp", "c" },
+	dotfiles = true,
+	ignore = false,
+
 	modules = {},
 	sync_install = true,
 	ignore_install = {},
@@ -19,8 +19,7 @@ require("nvim-treesitter.configs").setup({
 		extended_mode = true,
 		max_file_lines = nil,
 	},
-}
-)
+})
 
 vim.g.rest_nvim = {
 	result_split_horizontal = false,
@@ -143,7 +142,7 @@ vim.lsp.config("lua_ls", {
 	on_attach = function(client, bufnr)
 		print("lua lsp attached")
 	end,
-	filetypes = { "lua" },
+	-- filetypes = { "lua" },
 })
 
 vim.lsp.config("eslint", {
@@ -166,6 +165,7 @@ vim.lsp.enable("emmet_ls")
 vim.lsp.enable("angularls")
 vim.lsp.enable("intelephense")
 vim.lsp.enable("laravel_ls")
+vim.lsp.enable("eslint")
 
 local function start_sass_watcher()
 	local file = vim.fn.expand("%")
@@ -204,17 +204,17 @@ end, { desc = "format file" })
 --plugin Deps
 vim.opt.termguicolors = true
 vim.opt.cmdheight = 0
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "*",
-	callback = function()
-		vim.api.nvim_set_hl(0, "SnacksPicker", { bg = "none", nocombine = true })
-		vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = "#316c71", bg = "none", nocombine = true })
-	end,
-})
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.api.nvim_set_hl(0, "SnacksPicker", { bg = "none", nocombine = true })
+-- 		vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = "#316c71", bg = "none", nocombine = true })
+-- 	end,
+-- })
 --Diagnostics
 vim.diagnostic.config({
 	virtual_text = {
-		enabled = true,
+		enabled = false,
 		prefix = " ",
 	},
 	signs = true,

@@ -6,7 +6,7 @@ return {
 	transparent = true,
 	opts = {
 		bigfile = { enabled = true },
-
+		statuscolumn = { enabled = false },
 		dashboard = {
 			enabled = true,
 			preset = {
@@ -27,6 +27,10 @@ return {
 			position = "left",
 			width = 35,
 			show_hidden = "true",
+			exclude = {
+				".git",
+				"node_modules",
+			},
 		},
 		indent = { enabled = true },
 		input = { enabled = true },
@@ -41,7 +45,11 @@ return {
 			sources = {
 				files = {
 					hidden = true,
-				 
+					ignored = true,
+					exclude = {
+						".git",
+						"node_modules",
+					},
 				},
 				explorer = {
 					layout = {
