@@ -42,6 +42,7 @@ return {
 			enabled = true,
 			hidden = true,
 			ignored = true,
+			ui_select = true,
 			sources = {
 				files = {
 					hidden = true,

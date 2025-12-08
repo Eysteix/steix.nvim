@@ -95,6 +95,12 @@ vim.lsp.config("html", {
 	filetypes = { "html" }, -- DON'T include JS/TS here
 })
 
+vim.lsp.config("copilot", {
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	on_attach = function(client, bufnr)
+		print("Copilot LSP attached!")
+	end,
+})
 vim.lsp.config("emmet_ls", {
 	on_attach = function(client, bufnr)
 		print("Emmet AutoComplete")
@@ -166,6 +172,7 @@ vim.lsp.enable("angularls")
 vim.lsp.enable("intelephense")
 vim.lsp.enable("laravel_ls")
 vim.lsp.enable("eslint")
+vim.lsp.enable("copilot")
 
 local function start_sass_watcher()
 	local file = vim.fn.expand("%")
@@ -201,8 +208,9 @@ map("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true })
 map("n", "<leader>fm", function()
 	vim.lsp.buf.format({ async = false })
 end, { desc = "format file" })
---plugin Deps
+--Vim Options
 vim.opt.termguicolors = true
+vim.opt.splitright = true
 vim.opt.cmdheight = 0
 -- vim.api.nvim_create_autocmd("ColorScheme", {
 -- 	pattern = "*",
