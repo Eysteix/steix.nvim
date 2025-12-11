@@ -3,15 +3,6 @@ return {
 	dependencies = { "nvimtools/none-ls-extras.nvim" },
 
 	config = function()
-		local null_ls = require("null-ls")
-
-		null_ls.setup({
-			sources = {
-				null_ls.builtins.formatting.prettierd,
-				null_ls.builtins.formatting.prettier,
-			},
-		})
-
 		-- optional but recommended: format on save
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.json", "*.css", "*.scss", "*.md" },
@@ -19,5 +10,11 @@ return {
 				vim.lsp.buf.format({ async = false })
 			end,
 		})
+	end,
+
+	opts = function(_, opts)
+		local nls = require("null-ls")
+		opts.sources = opts.sources or {}
+		table.insert(opts.sources, nls.builtins.formatting.biome)
 	end,
 }

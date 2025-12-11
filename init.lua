@@ -151,14 +151,12 @@ vim.lsp.config("lua_ls", {
 	-- filetypes = { "lua" },
 })
 
-vim.lsp.config("eslint", {
+vim.lsp.config("biome", {
 	on_attach = function(client, bufnr)
-		print("Eslint")
+		print("biome lsp attached")
 	end,
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
-	settings = {
-		workingDirectory = { mode = "auto" },
-	},
+	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "typescript.tsx", "jsonc", "json" },
 })
 
 vim.lsp.enable("tailwindcss")
@@ -171,8 +169,13 @@ vim.lsp.enable("emmet_ls")
 vim.lsp.enable("angularls")
 vim.lsp.enable("intelephense")
 vim.lsp.enable("laravel_ls")
-vim.lsp.enable("eslint")
+vim.lsp.enable("biome")
 vim.lsp.enable("copilot")
+
+require("lazydev").setup({
+	library = { "nvim-dap-ui" },
+})
+require("dapui").setup()
 
 local function start_sass_watcher()
 	local file = vim.fn.expand("%")

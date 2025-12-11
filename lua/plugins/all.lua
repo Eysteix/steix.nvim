@@ -201,10 +201,6 @@ return {
 		config = true,
 	},
 	{
-		"rcarriga/nvim-dap-ui",
-		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-	},
-	{
 		"folke/lazydev.nvim",
 		ft = "lua",
 		opts = {
