@@ -1,5 +1,8 @@
 return {
-	{ "github/copilot.vim" },
+	{
+		"github/copilot.vim",
+		cmd = "Copilot",
+	},
 	-- {
 	-- 	"copilotlsp-nvim/copilot-lsp",
 	-- 	init = function()

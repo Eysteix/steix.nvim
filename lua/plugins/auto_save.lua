@@ -9,7 +9,7 @@ return {
 				immediate_save = { "BufLeave", "FocusLost", "InsertLeave" },
 				cancel_deferred_save = { "InsertEnter" },
 			},
-			debounce_delay = 5000,
+			debounce_delay = 3000,
 		},
 	},
 }

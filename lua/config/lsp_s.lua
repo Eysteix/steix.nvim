@@ -27,6 +27,7 @@ vim.lsp.config("ts_ls", {
 	on_attach = function(client, bufnr)
 		print("TypeScript LSP attached!")
 	end,
+	
 	filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
 })
 

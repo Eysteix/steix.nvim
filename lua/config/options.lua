@@ -26,6 +26,9 @@ vim.g.rest_nvim = {
 vim.opt.termguicolors = true
 vim.opt.splitright = true
 vim.opt.cmdheight = 0
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 -- vim.api.nvim_create_autocmd("ColorScheme", {
 -- 	pattern = "*",
 -- 	callback = function()
@@ -49,3 +52,4 @@ vim.opt.relativenumber = true
 vim.cmd.colorscheme("catppuccin-mocha")
 vim.o.cursorline = true
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#878dfe", bold = true, italic = true })
+vim.opt.wrap = false

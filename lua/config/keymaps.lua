@@ -18,3 +18,20 @@ map(
 map("n", "<leader>fm", function()
 	vim.lsp.buf.format({ async = false })
 end, { desc = "format file" })
+--
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
+-- 	callback = function()
+-- 		vim.lsp.buf.code_action({
+-- 			apply = true,
+-- 			context = {
+-- 				only = { "source.organizeImports" },
+-- 				diagnostics = {},
+-- 			},
+-- 		})
+-- 		vim.lsp.buf.code_action({
+-- 			apply = true,
+-- 			context = { only = { "source.fixAll" }, diagnostics = {} },
+-- 		})
+-- 	end,
+-- })

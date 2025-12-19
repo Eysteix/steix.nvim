@@ -9,6 +9,9 @@ require("config.lsp_s")
 
 require("config.setups")
 
+require("config.copilot-config")
+require("config.m-term")
+
 -- This module configures SASS-related settings and tools
 require("config.sass")
 

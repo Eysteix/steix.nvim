@@ -12,6 +12,7 @@ return {
 					sp = "#9398ff",
 					underline = true,
 				},
+
 				numbers_selected = {
 					sp = "#9398ff",
 					underline = true,
