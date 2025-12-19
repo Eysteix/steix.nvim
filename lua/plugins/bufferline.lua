@@ -5,6 +5,34 @@ return {
 
 	config = function()
 		require("bufferline").setup({
+
+			highlights = {
+				-- All components of selected buffer with same underline
+				buffer_selected = {
+					sp = "#9398ff",
+					underline = true,
+				},
+				numbers_selected = {
+					sp = "#9398ff",
+					underline = true,
+				},
+				close_button_selected = {
+					sp = "#9398ff",
+					underline = true,
+				},
+				separator_selected = {
+					sp = "#9398ff",
+					underline = true,
+				},
+				modified_selected = {
+					sp = "#9398ff",
+					underline = true,
+				},
+				duplicate_selected = {
+					sp = "#9398ff",
+					underline = true,
+				},
+			},
 			options = {
 				separator_style = "slant",
 				indicator = { style = "underline" },
@@ -28,10 +56,5 @@ return {
 				},
 			},
 		})
-	end,
-	opts = function(_, opts)
-		if (vim.g.colors_name or ""):find("catppuccin") then
-			opts.highlights = require("catppuccin.special.bufferline").get_theme()
-		end
 	end,
 }

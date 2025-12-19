@@ -4,6 +4,18 @@ return {
 		name = "catppuccin",
 		priority = 1000,
 		opts = {
+
+			highlight_overrides = {
+				all = function(colors)
+					return {
+						BufferLineIndicatorSelected = {
+							sp = "#00A342",
+							fg = "#000000",
+							underline = true,
+						},
+					}
+				end,
+			},
 			term_colors = true,
 			-- transparent_background = true,
 			dim_inactive = {
@@ -20,6 +32,7 @@ return {
 				snacks = true,
 				mason = true,
 				noice = true,
+				bufferline = false,
 				notify = true,
 				which_key = true,
 				fidget = true,

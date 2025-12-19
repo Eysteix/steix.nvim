@@ -23,15 +23,14 @@ return {
 		explorer = {
 			enabled = true,
 			preset = "sidebar",
-			position = "left",
-			width = 35,
+			position = "right",
 			show_hidden = "true",
 			exclude = {
 				".git",
 				"node_modules",
 			},
 		},
-		indent = { enabled = true },
+		indent = { enabled = true, animated = true, scope = { highlight = "SnacksScope" }, rainbow = true },
 		input = { enabled = true },
 		notifier = {
 			enabled = true,
@@ -54,6 +53,7 @@ return {
 				explorer = {
 					layout = {
 						auto_hide = { "input" },
+						layout = { width = 30, position = "right" },
 					},
 				},
 			},
@@ -643,13 +643,12 @@ return {
 				Snacks.toggle.diagnostics():map("<leader>ud")
 				Snacks.toggle.line_number():map("<leader>ul")
 				Snacks.toggle
-				    .option("conceallevel",
-					    { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
-				    :map("<leader>uc")
+					.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
+					:map("<leader>uc")
 				Snacks.toggle.treesitter():map("<leader>uT")
 				Snacks.toggle
-				    .option("background", { off = "light", on = "dark", name = "Dark Background" })
-				    :map("<leader>ub")
+					.option("background", { off = "light", on = "dark", name = "Dark Background" })
+					:map("<leader>ub")
 				Snacks.toggle.inlay_hints():map("<leader>uh")
 				Snacks.toggle.indent():map("<leader>ug")
 				Snacks.toggle.dim():map("<leader>uD")

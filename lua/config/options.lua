@@ -43,6 +43,9 @@ vim.diagnostic.config({
 	underline = true,
 	update_in_insert = false,
 })
+vim.opt.relativenumber = true
 
 --Theming
 vim.cmd.colorscheme("catppuccin-mocha")
+vim.o.cursorline = true
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#878dfe", bold = true, italic = true })

@@ -13,7 +13,7 @@ return {
 				opts[pos] = opts[pos] or {}
 				table.insert(opts[pos], {
 					ft = "snacks_terminal",
-					size = { height = 0.4 },
+					size = { height = 0.3 },
 					title = "%{b:snacks_terminal.id}: %{b:term_title}",
 					filter = function(_buf, win)
 						return vim.w[win].snacks_win
@@ -32,19 +32,8 @@ return {
 		end,
 	},
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		opts = function(_, opts)
-			return require("indent-rainbowline").make_opts(opts)
-		end,
-		dependencies = {
-			"TheGLander/indent-rainbowline.nvim",
-		},
-	},
-	{
 		"ricardoramirezr/blade-nav.nvim",
 		dependencies = {
-			"hrsh7th/nvim-cmp",
 			{ "ms-jpq/coq_nvim", branch = "coq" },
 		},
 		ft = { "blade", "php" },
@@ -237,9 +226,6 @@ return {
 	},
 
 	{
-		"numToStr/Comment.nvim",
-	},
-	{
 		"kosayoda/nvim-lightbulb",
 		config = function()
 			require("nvim-lightbulb").setup({
@@ -340,58 +326,6 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = { "ts_ls", "cssls", "html", "intelephense" },
-			})
-		end,
-	},
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"saadparwaiz1/cmp_luasnip",
-			"L3MON4D3/LuaSnip",
-		},
-		config = function()
-			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-
-			-- Main completion settings
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<Tab>"] = cmp.mapping.select_next_item(),
-					["<S-Tab>"] = cmp.mapping.select_prev_item(),
-				}),
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-					{ name = "buffer" },
-					{ name = "path" },
-				}),
-			})
-
-			cmp.setup.cmdline({ "/", "?" }, {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = {
-					{ name = "buffer" },
-				},
-			})
-
-			cmp.setup.cmdline(":", {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources({
-					{ name = "path" },
-				}, {
-					{ name = "cmdline" },
-				}),
 			})
 		end,
 	},

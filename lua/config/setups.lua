@@ -10,7 +10,7 @@ require("nvim-treesitter.configs").setup({
 	indent = { enable = true },
 	highlight = {
 		enable = true,
-		additional_vim_regex_highlighting = true,
+		additional_vim_regex_highlighting = false,
 	},
 	rainbow = {
 		enabled = true,
@@ -18,8 +18,6 @@ require("nvim-treesitter.configs").setup({
 		max_file_lines = nil,
 	},
 })
-
-require("Comment").setup()
 
 require("lazydev").setup({
 	library = { "nvim-dap-ui" },
