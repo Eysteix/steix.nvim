@@ -307,7 +307,7 @@ return {
 				lsp = {
 					-- Minimum characters before triggering LSP completions
 					-- WHY: Prevents too many results for short queries
-					min_keyword_length = 2,
+					min_keyword_length = 0,
 
 					-- Boost LSP items in ranking (0 = neutral)
 					score_offset = 0,

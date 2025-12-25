@@ -27,7 +27,7 @@ vim.lsp.config("ts_ls", {
 	on_attach = function(client, bufnr)
 		print("TypeScript LSP attached!")
 	end,
-	
+
 	filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
 })
 
@@ -43,12 +43,6 @@ vim.lsp.config("html", {
 	filetypes = { "html" },
 })
 
-vim.lsp.config("copilot", {
-	capabilities = require("blink.cmp").get_lsp_capabilities(),
-	on_attach = function(client, bufnr)
-		print("Copilot LSP attached!")
-	end,
-})
 vim.lsp.config("emmet_ls", {
 	on_attach = function(client, bufnr)
 		print("Emmet AutoComplete")
@@ -113,7 +107,7 @@ vim.lsp.config("cssls", {
 	on_attach = function(client, bufnr)
 		print("CSS LSP attached!")
 	end,
-capabilities = require("blink.cmp").get_lsp_capabilities(),
+	capabilities = require("blink.cmp").get_lsp_capabilities(),
 	filetypes = { "css", "scss", "less" },
 	settings = {
 		css = {
@@ -124,6 +118,18 @@ capabilities = require("blink.cmp").get_lsp_capabilities(),
 	},
 })
 
+vim.lsp.config("bashls", {
+	on_attach = function(client, bufnr)
+		print("Scripting Ls")
+	end,
+	capabilities = require("blink.cmp").get_lsp_capabilities(),
+	filetypes = {"zsh","zshrc","bash","bashrc","sh"}
+})
+
+
+
+
+vim.lsp.enable("bashls")
 vim.lsp.enable("cssls")
 vim.lsp.enable("tailwindcss")
 vim.lsp.enable("ts_ls")
@@ -136,4 +142,3 @@ vim.lsp.enable("angularls")
 vim.lsp.enable("intelephense")
 vim.lsp.enable("laravel_ls")
 vim.lsp.enable("biome")
-vim.lsp.enable("copilot")

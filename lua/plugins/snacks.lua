@@ -22,13 +22,10 @@ return {
 		},
 		explorer = {
 			enabled = true,
-			preset = "sidebar",
-			position = "right",
-			show_hidden = "true",
-			exclude = {
-				".git",
-				"node_modules",
-			},
+			showhidden = "false",
+			include = {
+				".env"
+			}
 		},
 		indent = { enabled = true, animated = true, scope = { highlight = "SnacksScope" }, rainbow = true },
 		input = { enabled = true },
@@ -41,9 +38,10 @@ return {
 			hidden = true,
 			ignored = true,
 			ui_select = true,
+			layout = { preset = "telescope" },
 			sources = {
 				files = {
-					hidden = true,
+					hidden = false,
 					ignored = false,
 					exclude = {
 						".git",
@@ -51,10 +49,10 @@ return {
 					},
 				},
 				explorer = {
+					hidden = false,
+					ignored = false,
+					include = { ".env" },
 					layout = {
-						files = {
-							exclude = { ".git", "node_modules" },
-						},
 						auto_hide = { "input" },
 						layout = { width = 30, position = "right" },
 					},

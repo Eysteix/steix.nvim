@@ -5,9 +5,26 @@ return {
 
 	config = function()
 		require("bufferline").setup({
-
 			highlights = {
 				-- All components of selected buffer with same underline
+				fill = {
+					bg = "none",
+					sp = "none",
+					nocombine = true,
+				},
+				-- separator = {
+				-- 	bg = "none",
+				-- 	fg = "none",
+				-- 	sp = "none",
+				-- 	nocombine = true,
+				-- },
+				-- separator_visible = {
+				-- 	bg = "none",
+				-- 	sp = "none",
+				-- 	fg = "none",
+				-- 	nocombine = true,
+				-- },
+				--
 				buffer_selected = {
 					sp = "#9398ff",
 					underline = true,
