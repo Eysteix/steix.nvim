@@ -19,6 +19,8 @@ A modern, highly optimized Neovim configuration focused on speed, excellent deve
 
 ## 🚀 Installation
 
+
+
 This configuration assumes you have a recent version of **Neovim (0.9.0+)** installed and configured.
 
 ### Prerequisites
