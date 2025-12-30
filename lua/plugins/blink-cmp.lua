@@ -287,7 +287,7 @@ return {
 				menu = {
 					-- Don't auto-show in cmdline (use Tab to trigger)
 					-- WHY: Auto-show is distracting in command mode
-					auto_show = true,
+					auto_show = false,
 				},
 			},
 		},

@@ -3,7 +3,6 @@ return {
 	event = "VeryLazy",
 	version = "*",
 	keys = {
-		-- One handed keymap recommended, you will be using the mouse
 		{
 			"<leader>v",
 			function()
