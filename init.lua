@@ -6,7 +6,7 @@ require("config.lazy")
 require("config.lsp_s")
 -- This module contains custom setups for various plugins and tools
 
-require("config.setups")
+require("lua.config.package-setups")
 
 require("config.m-term")
 
