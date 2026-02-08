@@ -17,7 +17,7 @@ return {
 				end,
 			},
 			term_colors = true,
-			-- transparent_background = true,
+			transparent_background = true,
 			dim_inactive = {
 				enabled = false, -- dims the background color of inactive window
 				shade = "dark",

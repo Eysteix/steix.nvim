@@ -3,10 +3,10 @@
 require("config.lazy")
 
 -- This module configures Language Server Protocol (LSP) settings
-require("config.lsp_s")
+require("config.lsp_setup")
 -- This module contains custom setups for various plugins and tools
 
-require("lua.config.package-setups")
+require("config.package-setups")
 
 require("config.m-term")
 

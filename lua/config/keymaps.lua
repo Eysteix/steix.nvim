@@ -9,6 +9,14 @@ map("n", "<C-k>", "<C-w>k", { desc = "Go to window up" })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to window right" })
 map("n", "<Tab>", ":BufferLineCycleNext<CR>", { silent = true })
 map("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true })
+
+vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+
+-- Expand 'cc' into 'CodeCompanion' in the command line
+vim.cmd([[cab cc CodeCompanion]])
+
 map(
 	"n",
 	"<leader>ba",

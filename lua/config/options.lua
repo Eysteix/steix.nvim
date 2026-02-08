@@ -29,13 +29,13 @@ vim.opt.cmdheight = 0
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
--- vim.api.nvim_create_autocmd("ColorScheme", {
--- 	pattern = "*",
--- 	callback = function()
--- 		vim.api.nvim_set_hl(0, "SnacksPicker", { bg = "none", nocombine = true })
--- 		vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = "#878dfe", bg = "none", nocombine = true })
--- 	end,
--- })
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		vim.api.nvim_set_hl(0, "SnacksPicker", { bg = "none", nocombine = true })
+		vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = "#878dfe", bg = "none", nocombine = true })
+	end,
+})
 --Diagnostics
 vim.diagnostic.config({
 	virtual_text = {

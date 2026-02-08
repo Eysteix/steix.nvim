@@ -1,8 +1,9 @@
 return {
 	"barrett-ruth/import-cost.nvim",
-	build = "sh install.sh bun",
-	config = function()
-		require("import-cost").setup({
+	config = function ()
+		vim.g.import_cost = {
+			package_manager = "bun",
+
 			-- Filetypes to attach to
 			filetypes = {
 				"javascript",
@@ -20,6 +21,6 @@ return {
 			-- Highlight of virtual text —
 			-- a highlight group to link to or table as specified by nvim_set_hl()
 			highlight = "Comment",
-		})
+		}
 	end,
 }
