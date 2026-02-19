@@ -49,7 +49,7 @@ vim.diagnostic.config({
 vim.opt.relativenumber = true
 
 --Theming
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("tokyonight-storm")
 vim.o.cursorline = true
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#878dfe", bold = true, italic = true })
 vim.opt.wrap = false
