@@ -10,13 +10,14 @@ return {
 		layout = {
 			position = "right",
 			size = 0.33,
+      width = 20,
 			border = "rounded",
 			layout = "vertical",
 		},
 	},
 	keys = {
 		{
-			"<tab>",
+			"<leader>az",
 			function()
 				-- if there is a next edit, jump to it, otherwise apply it if any
 				if not require("sidekick").nes_jump_or_apply() then
