@@ -8,6 +8,7 @@ return {
 			"lua-curl",
 			"lua-language-server",
 			"fidget",
+			"plenary.nvim",
 			"mimetypes",
 			"xml2lua",
 			"luarocks-build-tree-sitter",
