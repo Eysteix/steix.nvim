@@ -2,6 +2,14 @@ return {
 	"folke/sidekick.nvim",
 	opts = {
 		cli = {
+			tools = {
+				junie = {
+					cmd = { "junie" },
+					keys = {
+						submit = { "<c-s>", function(t) t:send("\n") end },
+					},
+				},
+			},
 			mux = {
 				backend = "tmux",
 				enabled = true,
@@ -10,7 +18,7 @@ return {
 		layout = {
 			position = "right",
 			size = 0.33,
-      width = 20,
+			width = 20,
 			border = "rounded",
 			layout = "vertical",
 		},
