@@ -95,7 +95,7 @@ vim.lsp.config("bashls", {
 		print("Scripting Ls")
 	end,
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
-	filetypes = {"zsh","zshrc","bash","bashrc","sh"}
+	filetypes = { "zsh", "zshrc", "bash", "bashrc", "sh" }
 })
 
 vim.lsp.config("javals", {
@@ -103,11 +103,8 @@ vim.lsp.config("javals", {
 		print("Java ")
 	end,
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
-	filetypes = {"java","kotlin","class"}
+	filetypes = { "java", "kotlin", "class" }
 })
-
-
-
 
 vim.lsp.enable("bashls")
 vim.lsp.enable("javals")

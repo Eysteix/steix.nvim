@@ -25,6 +25,11 @@ return {
 				-- 	nocombine = true,
 				-- },
 				--
+				background = {
+					bg = "none",
+					sp = "none",
+					nocombine = true,
+				},
 				buffer_selected = {
 					sp = "#9398ff",
 					underline = true,
@@ -66,10 +71,9 @@ return {
 				offsets = {
 					{
 						filetype = "snacks_layout_box",
-						text = "File Explorer",
 						text_align = "center",
 						highlight = "Directory",
-						separator = true, -- use a "true" to enable the default, or set your own character
+						separator = false, -- use a "true" to enable the default, or set your own character
 					},
 				},
 			},
